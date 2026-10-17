@@ -1,0 +1,44 @@
+name: Build & Release OmniPost Desktop
+
+on:
+  push:
+    tags:
+      - 'v*'
+  workflow_dispatch:
+
+jobs:
+  build-windows:
+    runs-on: windows-latest
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: 'pip'
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+          pip install pyinstaller
+
+      - name: Build OmniPost Desktop Executable
+        run: |
+          pyinstaller --noconsole --name "OmniPost" --add-data "config;config" main.py
+
+      - name: Compress Build Artifacts
+        run: |
+          Compress-Archive -Path dist\OmniPost -DestinationPath OmniPost-Windows-x64.zip
+
+      - name: Create Release
+        uses: softprops/action-gh-release@v2
+        if: startsWith(github.ref, 'refs/tags/')
+        with:
+          files: OmniPost-Windows-x64.zip
+          body_path: CHANGELOG.md

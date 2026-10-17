@@ -1,0 +1,33 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Data & Sandboxes (严禁泄露账号 Profile、Cookie 与本地日志)
+data/profiles/*
+!data/profiles/.gitkeep
+data/logs/*
+!data/logs/.gitkeep
+data/manual_packages/*
+!data/manual_packages/.gitkeep
+data/*.db
+data/*.sqlite
+
+# Environment variables
+.env
+
+# Packaging & Distribution
+build/
+dist/
+*.spec
+*.egg-info/
+
+# PyInstaller temporary files
+*.exe
+*.manifest
+
+# IDE & OS
+.vscode/
+.idea/
+Thumbs.db
+Desktop.ini

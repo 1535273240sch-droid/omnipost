@@ -1,0 +1,76 @@
+# 各平台发布规则规范表
+# 更新与测试基准日期: 2026-10-17
+
+douyin:
+  name: "抖音创作者中心"
+  max_title_len: 30
+  max_body_len: 1000
+  max_tags: 5
+  image_ratio: ["1:1", "3:4", "9:16", "16:9"]
+  video_max_seconds: 3600
+  supports:
+    - video
+    - image_text
+  notes: "标题建议简洁吸引人，话题以 # 开头并控制在 5 个以内"
+
+xiaohongshu:
+  name: "小红书创作服务平台"
+  max_title_len: 20
+  max_body_len: 1000
+  max_tags: 10
+  image_ratio: ["3:4", "1:1", "4:3"]
+  video_max_seconds: 900
+  supports:
+    - image_text
+    - video
+  notes: "小红书图文最少 1 张图片，上限 18 张，竖版 3:4 体验最佳"
+
+bilibili:
+  name: "哔哩哔哩创作中心"
+  max_title_len: 80
+  max_body_len: 2000
+  max_tags: 12
+  image_ratio: ["16:9", "4:3", "1:1"]
+  video_max_seconds: 7200
+  supports:
+    - video
+    - article
+    - image_text
+  notes: "支持长视频投稿与动态图文发布，通过 MatrixMedia CLI 执行"
+
+baijiahao:
+  name: "百家号内容发布平台"
+  max_title_len: 40
+  max_body_len: 10000
+  max_tags: 5
+  image_ratio: ["16:9", "3:2"]
+  video_max_seconds: 3600
+  supports:
+    - article
+    - video
+    - image_text
+  notes: "主流资讯聚合平台，正文字数要求较宽裕，支持富文本排版"
+
+kuaishou:
+  name: "快手创作者服务平台"
+  max_title_len: 50
+  max_body_len: 500
+  max_tags: 5
+  image_ratio: ["9:16", "16:9"]
+  video_max_seconds: 3600
+  supports:
+    - video
+    - image_text
+  notes: "短视频分发平台"
+
+wechat_channels:
+  name: "微信视频号助手"
+  max_title_len: 30
+  max_body_len: 1000
+  max_tags: 5
+  image_ratio: ["9:16", "6:7", "16:9"]
+  video_max_seconds: 1800
+  supports:
+    - video
+    - image_text
+  notes: "微信生态短视频与动态分发"
